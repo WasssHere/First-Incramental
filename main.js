@@ -26,7 +26,7 @@ function onePanda(number) {
 
 var babypanda = 0;
 function buyBabyPanda(number){
-    var babypandacost = Math.floor(10 * Math.pow(1.1,babypanda));     //works out the cost of this cursor
+    var babypandacost = Math.floor(10 * Math.pow(1.05,babypanda));     //works out the cost of this cursor
     if(pandas >= babypandacost){                                   //checks that the player can afford the cursor
         babypanda = babypanda + 1;                                   //increases number of babypanda
         pandas = pandas - babypandacost;                          //removes the pandas spent
