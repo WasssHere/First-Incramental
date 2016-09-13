@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="interface.css" />
-	<title>First Clicker</title>
-</head>
-<body>
-	<button onclick="oneClick(1)">Click me</button>
-		<span id="clicks">0</span><br /><br />
-	<button onclick="buyCursor(1)">Buy Curser</button>
-		Cursors: <span id="cursors">0</span>
-		Cursor Cost:<span id="cursorCost">10</span>
-	<script type="text/javascript" src="main.js"></script>
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<title>Panda Clicker</title>
+	</head>
+	<body>
+	
+		<ul class="tab">
+ 			<li><a href="#" class="tablinks" onclick="openTab(event, 'PandaPopulation')">Panda Population</a></li>
+ 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</a></li>
+ 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Options')">Options</a></li>
+		</ul>
+
+		<div id="PandaPopulation" class="tabcontent">
+			<h3>Panda Population</h3>
+				<button onclick="onePanda(1)">Panda Population</button>
+					<span id="pandas">0</span>
+																		<br/ >
+																		<br/ >
+				<button onclick="buyBabyPanda(1)">Buy Baby Panda +1/s</button>
+					Baby Pandas: <span id="babypanda">0</span>
+					Cost: <span id="babypandacost">10</span>
+		</div>
+		
+		<div id="Upgrades" class="tabcontent">
+			<h3>Upgrades</h3>
+  			<p>Will be added at a later time.</p>
+		</div>		
+
+		<div id="Options" class="tabcontent">
+			<h3>Options</h3>
+  			<p>Will be added at a later time.</p>
+		</div>
+
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
