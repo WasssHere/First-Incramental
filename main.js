@@ -96,10 +96,10 @@ onePanda(babypanda);
 }, 1000);
 
 window.setInterval(function(){
-onePanda(teenagepanda * 10);
+onePanda(teenagepanda * 5);
 }, 1000);
 
 window.setInterval(function(){
-onePanda(adultpanda * 25);
+onePanda(adultpanda * 15);
 }, 1000);
 
