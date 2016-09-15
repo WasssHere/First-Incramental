@@ -3,7 +3,10 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 		<title>Panda Clicker</title>
-		
+		<style>
+		body {background-color: white}
+		</style>
+
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -14,7 +17,7 @@
 		  ga('send', 'pageview');
 
 		</script>
-		
+
 	</head>
 	<body>
 	
@@ -26,13 +29,18 @@
 
 		<div id="PandaPopulation" class="tabcontent">
 			<h3>Panda Population</h3>
-				<button onclick="onePanda(1)">Panda Population</button>
-					<span id="pandas">0</span>
+				<button class="button" onclick="onePanda(1)">Panda Population</button>
+					Pandas: <span id="pandas">0</span>
 																		<br/ >
 																		<br/ >
-				<button onclick="buyBabyPanda(1)">Buy Baby Panda +1/s</button>
+				<button class="button" onclick="buyBabyPanda(1)">Buy Baby Panda</button>
 					Baby Pandas: <span id="babypanda">0</span>
 					Cost: <span id="babypandacost">10</span>
+																		<br/ >
+																		<br/ >
+				<button class="button" onclick="buyTeenagePanda(1)">Buy Teenage Panda</button>
+					Teenage Pandas: <span id="teenagepanda">0</span>
+					Cost: <span id="teenagepandacost">100</span>
 		</div>
 		
 		<div id="Upgrades" class="tabcontent">
@@ -42,10 +50,11 @@
 
 		<div id="Options" class="tabcontent">
 			<h3>Options</h3>
-  			<button onclick="save(1)">Save</button>
-  			<button onclick="load(1)">Load</button>
-  			<button onclick="reset(1)">Reset</button>
+  			<button class="button" onclick="save();openAlertSave()">Save</button>
+  			<button class="button" onclick="load();openAlertLoad()">Load</button>
+  			<button class="button" onclick="reset();openAlertReset()">Reset</button>
 		</div>
+
 
 <script type="text/javascript" src="main.js"></script>
 </body>
