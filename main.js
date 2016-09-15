@@ -94,7 +94,7 @@ function buyAdultPanda(number){
 var elderpanda = 0;
 function buyElderPanda(number){
     var elderpandacost = Math.floor(1000 * Math.pow(1.25,elderpanda));     
-    if(pandas >= elderpanda){                                  
+    if(pandas >= elderpandacost){                                  
         elderpanda = elderpanda + 1;                                   
         pandas = pandas - elderpandacost;                          
         document.getElementById('elderpanda').innerHTML = elderpanda;  
@@ -103,6 +103,7 @@ function buyElderPanda(number){
     var nextCost = Math.floor(1000 * Math.pow(1.25,elderpanda));      
     document.getElementById('elderpandacost').innerHTML = nextCost;  
 };
+
 
 
 window.setInterval(function(){
