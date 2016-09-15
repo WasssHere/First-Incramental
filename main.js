@@ -54,53 +54,53 @@ function onePanda(number) {
 
 var babypanda = 0;
 function buyBabyPanda(number){
-    var babypandacost = Math.floor(10 * Math.pow(1.1,babypanda));     
+    var babypandacost = Math.floor(10 * Math.pow(1.25,babypanda));     
     if(pandas >= babypandacost){                                  
         babypanda = babypanda + 1;                                   
         pandas = pandas - babypandacost;                          
         document.getElementById('babypanda').innerHTML = babypanda;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(10 * Math.pow(1.1,babypanda));      
+    var nextCost = Math.floor(10 * Math.pow(1.25,babypanda));      
     document.getElementById('babypandacost').innerHTML = nextCost;  
 };
 
 var teenagepanda = 0;
 function buyTeenagePanda(number){
-    var teenagepandacost = Math.floor(100 * Math.pow(1.1,teenagepanda));     
+    var teenagepandacost = Math.floor(100 * Math.pow(1.25,teenagepanda));     
     if(pandas >= teenagepandacost){                                  
         teenagepanda = teenagepanda + 1;                                   
         pandas = pandas - teenagepandacost;                          
         document.getElementById('teenagepanda').innerHTML = teenagepanda;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(100 * Math.pow(1.1,teenagepanda));      
+    var nextCost = Math.floor(100 * Math.pow(1.25,teenagepanda));      
     document.getElementById('teenagepandacost').innerHTML = nextCost;  
 };
 
 var adultpanda = 0;
 function buyAdultPanda(number){
-    var adultpandacost = Math.floor(250 * Math.pow(1.1,adultpanda));     
+    var adultpandacost = Math.floor(250 * Math.pow(1.25,adultpanda));     
     if(pandas >= adultpandacost){                                  
         adultpanda = adultpanda + 1;                                   
         pandas = pandas - adultpandacost;                          
         document.getElementById('adultpanda').innerHTML = adultpanda;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(250 * Math.pow(1.1,adultpanda));      
+    var nextCost = Math.floor(250 * Math.pow(1.25,adultpanda));      
     document.getElementById('adultpandacost').innerHTML = nextCost;  
 };
 
 var elderpanda = 0;
 function buyElderPanda(number){
-    var elderpandacost = Math.floor(1000 * Math.pow(1.1,elderpanda));     
+    var elderpandacost = Math.floor(1000 * Math.pow(1.25,elderpanda));     
     if(pandas >= elderpanda){                                  
         elderpanda = elderpanda + 1;                                   
         pandas = pandas - elderpandacost;                          
         document.getElementById('elderpanda').innerHTML = elderpanda;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(1000 * Math.pow(1.1,elderpanda));      
+    var nextCost = Math.floor(1000 * Math.pow(1.25,elderpanda));      
     document.getElementById('elderpandacost').innerHTML = nextCost;  
 };
 
