@@ -113,7 +113,7 @@ function buyClickUpgrade(number){
         document.getElementById('clickupgrade').innerHTML = clickupgrade;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(1000 * Math.pow(1.25,elderpanda));      
+    var nextCost = Math.floor(100 * Math.pow(2.80,clickupgrade));      
     document.getElementById('clickupgradecost').innerHTML = nextCost;  
 };
 
