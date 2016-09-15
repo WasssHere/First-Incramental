@@ -30,6 +30,10 @@ function openAlertReset() {
     alert("Game Reset.")
 }
 
+window.setInterval(function(){
+save();
+}, 5000);
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
 
@@ -133,3 +137,4 @@ onePanda(adultpanda * 8);
 window.setInterval(function(){
 onePanda(elderpanda * 20);
 }, 1000);
+
