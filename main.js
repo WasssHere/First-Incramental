@@ -104,10 +104,6 @@ function buyElderPanda(number){
     document.getElementById('elderpandacost').innerHTML = nextCost;  
 };
 
-Window.setInterval(function(){
-save();
-}, 10000);
-
 window.setInterval(function(){
 onePanda(babypanda);
 }, 1000);
