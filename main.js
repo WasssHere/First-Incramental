@@ -80,7 +80,7 @@ function buyTeenagePanda(number){
 
 var adultpanda = 0;
 function buyAdultPanda(number){
-    var adultpandacost = Math.floor(250 * Math.pow(1.1,teenagepanda));     
+    var adultpandacost = Math.floor(250 * Math.pow(1.1,adultpanda));     
     if(pandas >= adultpandacost){                                  
         adultpanda = adultpanda + 1;                                   
         pandas = pandas - adultpandacost;                          
