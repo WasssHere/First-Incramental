@@ -104,6 +104,21 @@ function buyElderPanda(number){
     document.getElementById('elderpandacost').innerHTML = nextCost;  
 };
 
+var clickupgrade = 0;
+function buyClickUpgrade(number){
+    var clickupgradecost = Math.floor(100 * Math.pow(2.80,clickupgrade));     
+    if(pandas >= clickupgradecost){                                  
+        clickupgrade = clickupgrade + 1;                                   
+        pandas = pandas - clickupgradecost;                          
+        document.getElementById('clickupgrade').innerHTML = clickupgrade;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(1000 * Math.pow(1.25,elderpanda));      
+    document.getElementById('clickupgradecost').innerHTML = nextCost;  
+};
+
+
+
 window.setInterval(function(){
 onePanda(babypanda);
 }, 1000);
