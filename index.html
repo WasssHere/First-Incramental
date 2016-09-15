@@ -1,82 +1,135 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="interface.css" />
-		<title>Panda Clicker</title>
-		<style>
-		body {background-color: white}
-		</style>
+function save() {
+    var save = {
+        pandas: pandas,
+        babypanda: babypanda,
+        teenagepanda: teenagepanda
+    }
+    localStorage.setItem("save",JSON.stringify(save));
+}
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		  ga('create', 'UA-84143625-1', 'auto');
-		  ga('send', 'pageview');
-		</script>
+function load() {
+    var savegame = JSON.parse(localStorage.getItem("save"));
+    if (typeof savegame.pandas !== "undefined") pandas = savegame.pandas;
+    if (typeof savegame.babypanda !== "undefined") babypanda = savegame.babypanda;
+    if (typeof savegame.teenagepanda !== "undefined") teenagepanda = savegame.teenagepanda;
+}
 
-	</head>
-	<body>
-	
-		<ul class="tab">
- 			<li><a href="#" class="tablinks" onclick="openTab(event, 'PandaPopulation')">Panda Population</a></li>
- 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</a></li>
- 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Options')">Options</a></li>
-		</ul>
+function reset() {
+    localStorage.removeItem("save")
+}
 
-		<div id="PandaPopulation" class="tabcontent">
-			<h3>Panda Population</h3>
-				<button class="button" onclick="onePanda(1)">Panda Population</button>
-					Pandas: <span id="pandas">0</span>
-																		<br/ >
-																		<br/ >
-				<button class="button" onclick="buyBabyPanda(1)">Buy Baby Panda</button>
-					Baby Pandas: <span id="babypanda">0</span>
-					Cost: <span id="babypandacost">10</span>
-																		<br/ >
-																		<br/ >
-				<button class="button" onclick="buyTeenagePanda(1)">Buy Teenage Panda</button>
-					Teenage Pandas: <span id="teenagepanda">0</span>
-					Cost: <span id="teenagepandacost">100</span>
-<br/ >
+function openAlertSave() {
+    alert("Game Saved.")
+}
 
-<br/ >
-                <button class="button" onclick="buyAdultPanda(1)">Buy Adult Panda</button>
-					Adult Pandas: <span id="adultpanda">0</span>
-					Cost: <span id="adultpandacost">250</span>
-<br/ >
+function openAlertLoad() {
+    alert("Game Loaded.")
+}
 
-<br/ >
-                <button class="button" onclick="buyElderPanda(1)">Buy Elder Panda</button>
-					Elder Pandas: <span id="elderpanda">0</span>
-					Cost: <span id="elderpandacost">1000</span>                         
+function openAlertReset() {
+    alert("Game Reset.")
+}
 
-		</div>
-		
-		<div id="Upgrades" class="tabcontent">
-			<h3>Upgrades</h3>
-                <button class="button" onclick="buyClickUpgrade(1)">Double Click Income</button> 
-		            Click Upgrades: <span id="clickupgrade">0</span>
-                    Cost: <span id="clickupgradecost">100</span>  
- 		</div>		        
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
 
-		<div id="Options" class="tabcontent">
-			<h3>Options</h3>
-  				<button class="button" onclick="save();openAlertSave()">Save</button>
-  				<button class="button" onclick="load();openAlertLoad()">Load</button>
-  				<button class="button" onclick="reset();openAlertReset()">Reset</button>
-<br/ >
-<br/ >
-			<h3>Changelog</h3>
-			<h4>V. 0.0.1(Pre-Release)</h4>
-			<p>Graphic Additions.</p>
-			<p>Added Upgrades.</p>
-			<p>Added Buildings To Make Pandas/s.</p>
-			<p>Added Options To Save, Load, and Reset Your Game.</p>
-		</div>
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
 
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
 
-<script type="text/javascript" src="main.js"></script>
-</body>
-</html>
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+var pandas = 0;
+function onePanda(number) {
+    pandas = pandas + number*(clickupgrade+1);
+    document.getElementById("pandas").innerHTML = pandas;
+};
+
+var babypanda = 0;
+function buyBabyPanda(number){
+    var babypandacost = Math.floor(10 * Math.pow(1.1,babypanda));     
+    if(pandas >= babypandacost){                                  
+        babypanda = babypanda + 1;                                   
+        pandas = pandas - babypandacost;                          
+        document.getElementById('babypanda').innerHTML = babypanda;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(10 * Math.pow(1.1,babypanda));      
+    document.getElementById('babypandacost').innerHTML = nextCost;  
+};
+
+var teenagepanda = 0;
+function buyTeenagePanda(number){
+    var teenagepandacost = Math.floor(45 * Math.pow(1.1,teenagepanda));     
+    if(pandas >= teenagepandacost){                                  
+        teenagepanda = teenagepanda + 1;                                   
+        pandas = pandas - teenagepandacost;                          
+        document.getElementById('teenagepanda').innerHTML = teenagepanda;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(45 * Math.pow(1.1,teenagepanda));      
+    document.getElementById('teenagepandacost').innerHTML = nextCost;  
+};
+
+var adultpanda = 0;
+function buyAdultPanda(number){
+    var adultpandacost = Math.floor(200 * Math.pow(1.1,adultpanda));     
+    if(pandas >= adultpandacost){                                  
+        adultpanda = adultpanda + 1;                                   
+        pandas = pandas - adultpandacost;                          
+        document.getElementById('adultpanda').innerHTML = adultpanda;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(200 * Math.pow(1.1,adultpanda));      
+    document.getElementById('adultpandacost').innerHTML = nextCost;  
+};
+
+var elderpanda = 0;
+function buyElderPanda(number){
+    var elderpandacost = Math.floor(800 * Math.pow(1.1,elderpanda));     
+    if(pandas >= elderpandacost){                                  
+        elderpanda = elderpanda + 1;                                   
+        pandas = pandas - elderpandacost;                          
+        document.getElementById('elderpanda').innerHTML = elderpanda;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(800 * Math.pow(1.1,elderpanda));      
+    document.getElementById('elderpandacost').innerHTML = nextCost;  
+};
+
+var clickupgrade = 0;
+function buyClickUpgrade(number){
+    var clickupgradecost = Math.floor(100 * Math.pow(2.80,clickupgrade));     
+    if(pandas >= clickupgradecost){                                  
+        clickupgrade = clickupgrade + 1;                                   
+        pandas = pandas - clickupgradecost;                          
+        document.getElementById('clickupgrade').innerHTML = clickupgrade;  
+        document.getElementById('pandas').innerHTML = pandas;  
+    };
+    var nextCost = Math.floor(100 * Math.pow(2.80,clickupgrade));      
+    document.getElementById('clickupgradecost').innerHTML = nextCost;  
+};
+
+window.setInterval(function(){
+onePanda(babypanda);
+}, 1000);
+
+window.setInterval(function(){
+onePanda(teenagepanda * 3);
+}, 1000);
+
+window.setInterval(function(){
+onePanda(adultpanda * 8);
+}, 1000);
+
+window.setInterval(function(){
+onePanda(elderpanda * 20);
+}, 1000);
