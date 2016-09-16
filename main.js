@@ -1,55 +1,9 @@
-function save() {
-    var save = {
-        pandas: pandas,
-        babypanda: babypanda,
-        teenagepanda: teenagepanda
-    }
-    localStorage.setItem("save",JSON.stringify(save));
-}
-
-function load() {
-    var savegame = JSON.parse(localStorage.getItem("save"));
-    if (typeof savegame.pandas !== "undefined") pandas = savegame.pandas;
-    if (typeof savegame.babypanda !== "undefined") babypanda = savegame.babypanda;
-    if (typeof savegame.teenagepanda !== "undefined") teenagepanda = savegame.teenagepanda;
-}
-
-function reset() {
-    localStorage.removeItem("save")
-}
-
-function openAlertSave() {
-    alert("Game Saved.")
-}
-
-function openAlertLoad() {
-    alert("Game Loaded.")
-}
-
-function openAlertReset() {
-    alert("Game Reset.")
-}
+//Auto-Save Function
 
 window.setInterval(function(){
 save();
-}, 5000);
-
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+}, 30000);
+//Buying Pandas/s Buildings and Upgrades
 
 var pandas = 0;
 function onePanda(number) {
@@ -109,18 +63,24 @@ function buyElderPanda(number){
     document.getElementById('elderpandacost').innerHTML = nextCost;  
 };
 
+//Come back and finish new pandas.
+
 var clickupgrade = 0;
 function buyClickUpgrade(number){
-    var clickupgradecost = Math.floor(100 * Math.pow(2.80,clickupgrade));     
+    var clickupgradecost = Math.floor(100 * Math.pow(1.5,clickupgrade));     
     if(pandas >= clickupgradecost){                                  
         clickupgrade = clickupgrade + 1;                                   
         pandas = pandas - clickupgradecost;                          
         document.getElementById('clickupgrade').innerHTML = clickupgrade;  
         document.getElementById('pandas').innerHTML = pandas;  
     };
-    var nextCost = Math.floor(100 * Math.pow(2.80,clickupgrade));      
+    var nextCost = Math.floor(100 * Math.pow(1.5,clickupgrade));      
     document.getElementById('clickupgradecost').innerHTML = nextCost;  
 };
+
+//Come back and finish upgrades.
+
+//Loops
 
 window.setInterval(function(){
 onePanda(babypanda);
