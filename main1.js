@@ -4,7 +4,10 @@ function save() {
     var save = {
         pandas: pandas,
         babypanda: babypanda,
-        teenagepanda: teenagepanda
+        teenagepanda: teenagepanda,
+        adultpanda: adultpanda,
+        elderpanda: elderpanda,
+        clickupgrade: clickupgrade
     }
     localStorage.setItem("save",JSON.stringify(save));
 }
