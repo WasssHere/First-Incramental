@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 		<title>Panda Clicker</title>
 		<style>
-		body {background-color: white}
+		body {background-color: #f1f1f1}
 		</style>
 
 		<script>
@@ -22,6 +22,9 @@
 		<ul class="tab">
  			<li><a href="#" class="tablinks" onclick="openTab(event, 'PandaPopulation')">Panda Population</a></li>
  	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</a></li>
+ 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Prestige')">Prestige</a></li>
+ 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Statistics')">Statistics</a></li>
+ 	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Achievements')">Achievements</a></li>
  	 		<li><a href="#" class="tablinks" onclick="openTab(event, 'Options')">Options</a></li>
 		</ul>
 
@@ -48,27 +51,78 @@
 <br/ >
                 <button class="button" onclick="buyElderPanda(1)">Buy Elder Panda +20/s</button>
 					Elder Pandas: <span id="elderpanda">0</span>
-					Cost: <span id="elderpandacost">800</span>                         
+					Cost: <span id="elderpandacost">800</span>
+<br/ >
+<br/ >
+                <button title="Put In Preperation For Prestige One Unlocks." class="button disabled" onclick="buySpiritPanda(1)">Buy Spirit Panda +40/s</button>
+					Spirit Pandas: <span id="spiritpanda">0</span>
+					Cost: <span id="spiritpandacost">2000</span>					                         
 
 		</div>
 		
 		<div id="Upgrades" class="tabcontent">
 			<h3>Upgrades</h3>
+			<p>Hover Over Grayed Out Buttons For a Tooltip.</p>
                 <button class="button" onclick="buyClickUpgrade(1)">+1 To Every Click</button> 
 		            Click Upgrades: <span id="clickupgrade">0</span>
                     Cost: <span id="clickupgradecost">100</span> 
+<br/ >
+<br/ >           
+				<button title="Put In Preperation For Prestige One Unlocks." class="button disabled" onclick="buyBabyPandaUpgrade(1)">+25% To Baby Panda</button> 
+                    Cost: <span id="babypandaupgradecost">50</span>                    
+<br/ >
+<br/ > 
+				<button title="Put In Preperation For Prestige One Unlocks." class="button disabled" onclick="buyTeenagePandaUpgrade(1)">+25% To Teenage Panda</button>
+                    Cost: <span id="teenagepandaupgradecost">180</span>
+<br/ >
+<br/ > 
+				<button title="Put In Preperation For Prestige One Unlocks." class="button disabled" onclick="buyAdultPandaUpgrade(1)">+25% To Adult Panda</button> 
+                    Cost: <span id="adultpandaupgradecost">600</span>   
+<br/ >
+<br/ > 
+				<button title="Put In Preperation For Prestige One Unlocks." class="button disabled" onclick="buyElderPandaUpgrade(1)">+25% To Elder Panda</button> 
+                    Cost: <span id="elderpandaupgradecost">1900</span>
+<br/ >
+<br/ > 
+				<button title="Put In Preperation For Prestige Two Unlocks." class="button disabled" onclick="buySpiritPandaUpgrade(1)">+25% To Spirit Panda</button> 
+                    Cost: <span id="spiritpandaupgradecost">3600</span>                                                                                
  		</div>		        
 
+ 		<div id="Prestige" class="tabcontent">
+ 			<h3>Prestige</h3>
+ 				<p>Will be added in a future update.</p>
+ 		</div>
+
+ 		<div id="Statistics" class="tabcontent">
+ 			<h3>Statistics</h3>
+ 				<p>Will be added in a future update.</p>
+ 		</div>
+
+ 		<div id="Achievements" class="tabcontent">
+ 			<h3>Achievements</h3>
+ 				<p>Will be added in a future update.</p>
+ 		</div>
+		
 		<div id="Options" class="tabcontent">
 			<h3>Options</h3>
   				<button class="button" onclick="save();openAlertSave()">Save</button>
   				<button class="button" onclick="load();openAlertLoad()">Load</button>
   				<button class="button" onclick="reset();openAlertReset()">Reset</button>
-  				<p>Automatically saves once every 5 seconds.</p>
+  				<p>Automatically saves once every 30 seconds.</p>
+  				<p>Do not leave game sitting for 30 seconds after load or all of your data will be erased.</p>
+  				<p>To load your save after refreshing page press the load button, no auto-load at the moment.</p>
+
 			
 			<h3>Changelog</h3>
+			<h4>V. 0.0.3(Pre-Release)</h4>
+				<p>Added Tabs For Prestige, Statistics, and Achievements.</p>
+				<p>Added a New Building For Preperation of Prestige</p>
+				<p>Added New Upgrades For Preperation of Prestige</p>
+				<p>Added Tool Tips For Grayed Out Boxes</p>
+				<p>Added Upgrade and Save Information</p>
+				<p>More Game Balances</p>
 			<h4>V. 0.0.2(Pre-Release)</h4>
-				<p>Major game balancing.</p>
+				<p>Major Game Balancing.</p>
 			<h4>V. 0.0.1(Pre-Release)</h4>
 				<p>Graphic Additions.</p>
 				<p>Added Upgrades.</p>
@@ -78,5 +132,6 @@
 
 
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="main1.js"></script>
 </body>
 </html>
